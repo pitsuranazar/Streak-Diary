@@ -1,0 +1,80 @@
+.pageLayout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--content-bg);
+}
+
+.contentWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 36px 24px;
+    gap: 20px;
+    min-width: 0;
+}
+
+.profileCard {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 680px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.userBlock {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #e5e7f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: #6366f1;
+    font-weight: 700;
+}
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.userName {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.userBio {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.editBtn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--primary);
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+
+.editBtn:hover {
+    background-color: #f5f6ff;
+    border-color: var(--primary);
+}

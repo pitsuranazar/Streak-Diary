@@ -1,0 +1,110 @@
+.sidebar {
+    width: 240px;
+    min-width: 240px;
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 20px 24px 20px;
+    position: sticky;
+    top: 0;
+}
+
+.topSection {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--sidebar-text);
+    cursor: pointer;
+    user-select: none;
+    padding-left: 12px;
+    letter-spacing: -0.2px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.navItem {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: var(--sidebar-text-muted);
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    transition: all 0.15s ease;
+}
+
+.navItem:hover {
+    color: var(--sidebar-text);
+    background-color: var(--sidebar-hover-bg);
+}
+
+.navItemActive {
+    color: var(--sidebar-text);
+    background-color: var(--sidebar-active-bg);
+    font-weight: 600;
+}
+
+.bottomSection {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.authBtnPrimary {
+    width: 100%;
+    background-color: var(--primary);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.15s;
+}
+
+.authBtnPrimary:hover {
+    background-color: var(--primary-hover);
+}
+
+.authBtnSecondary {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--sidebar-border);
+    color: var(--sidebar-text-muted);
+    padding: 9px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.15s;
+}
+
+.authBtnSecondary:hover {
+    color: var(--sidebar-text);
+    background-color: var(--sidebar-hover-bg);
+}
+
+.logoutBtn {
+    background: transparent;
+    color: var(--sidebar-text-muted);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 13px;
+    text-align: left;
+    transition: all 0.15s;
+}
+
+.logoutBtn:hover {
+    color: #ff6b6b;
+    background-color: rgba(255, 107, 107, 0.1);
+}

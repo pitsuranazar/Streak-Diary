@@ -1,0 +1,146 @@
+.pageLayout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--content-bg);
+}
+
+.contentWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px;
+    gap: 16px;
+    min-width: 0;
+}
+
+.searchBox {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    max-width: 580px;
+}
+
+.searchInput {
+    flex: 1;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    outline: none;
+    box-shadow: var(--card-shadow);
+}
+
+.searchInput:focus {
+    border-color: var(--primary);
+}
+
+.searchBtn {
+    background-color: var(--primary);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 0.15s;
+}
+
+.searchBtn:hover {
+    background-color: var(--primary-hover);
+}
+
+.friendsCard {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 580px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cardTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #f2f3f8;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.itemLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatarGreen { background-color: #10b981; }
+.avatarOrange { background-color: #f97316; }
+.avatarPink { background-color: #ec4899; }
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.status {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.actionBtn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+
+.actionBtn:hover {
+    background-color: #f5f6ff;
+    border-color: var(--primary);
+}

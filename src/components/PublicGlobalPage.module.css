@@ -1,0 +1,112 @@
+.pageLayout {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--content-bg);
+}
+
+.contentWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 24px;
+    min-width: 0;
+}
+
+.feedCard {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 620px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.feedHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.feedTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.feedSubtitle {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.postList {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.postItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #f2f3f8;
+}
+
+.postItem:last-child {
+    border-bottom: none;
+}
+
+.postLeft {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.avatarPurple { background-color: #6366f1; }
+.avatarGreen { background-color: #10b981; }
+.avatarOrange { background-color: #f97316; }
+.avatarPink { background-color: #ec4899; }
+
+.postInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.userName {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.postText {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.postMeta {
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+}
