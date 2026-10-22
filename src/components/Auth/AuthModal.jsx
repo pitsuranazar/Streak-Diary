@@ -3,11 +3,26 @@ import styles from './AuthModal.module.css';
 
 export default function AuthModal({ initialMode = 'login', onClose, onSuccessLogin }) {
     const [mode, setMode] = useState(initialMode);
+
+    // Поля форми
+    const [lastName, setLastName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [nickname, setNickname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    // Стан показу пароля
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        if (mode === 'register' && password !== confirmPassword) {
+            alert('Паролі не співпадають!');
+            return;
+        }
+
         onSuccessLogin();
     };
 
@@ -55,6 +70,58 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                 </div>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
+                    {mode === 'register' && (
+                        <>
+                            {/* Ім'я та Прізвище (необов'язкові) */}
+                            <div className={styles.rowTwoCols}>
+                                <div className={styles.fieldGroup}>
+                                    <label className={styles.label} htmlFor="reg-first-name">
+                                        Ім&apos;я <span className={styles.optionalTag}>(необов&apos;язково)</span>
+                                    </label>
+                                    <input
+                                        id="reg-first-name"
+                                        type="text"
+                                        className={styles.input}
+                                        placeholder="Олександр"
+                                        value={firstName}
+                                        onChange={(e) => setFirstName(e.target.value)}
+                                    />
+                                </div>
+
+                                <div className={styles.fieldGroup}>
+                                    <label className={styles.label} htmlFor="reg-last-name">
+                                        Прізвище <span className={styles.optionalTag}>(необов&apos;язково)</span>
+                                    </label>
+                                    <input
+                                        id="reg-last-name"
+                                        type="text"
+                                        className={styles.input}
+                                        placeholder="Шевченко"
+                                        value={lastName}
+                                        onChange={(e) => setLastName(e.target.value)}
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Нікнейм (обов'язковий) */}
+                            <div className={styles.fieldGroup}>
+                                <label className={styles.label} htmlFor="reg-nickname">
+                                    Нікнейм
+                                </label>
+                                <input
+                                    id="reg-nickname"
+                                    type="text"
+                                    className={styles.input}
+                                    placeholder="username"
+                                    value={nickname}
+                                    onChange={(e) => setNickname(e.target.value)}
+                                    required
+                                />
+                            </div>
+                        </>
+                    )}
+
+                    {/* Пошта */}
                     <div className={styles.fieldGroup}>
                         <label className={styles.label} htmlFor="auth-email">
                             Електронна пошта
@@ -70,19 +137,52 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                         />
                     </div>
 
+                    {/* Пароль */}
                     <div className={styles.fieldGroup}>
                         <label className={styles.label} htmlFor="auth-password">
                             Пароль
                         </label>
                         <input
                             id="auth-password"
-                            type="password"
+                            type={showPassword ? 'text' : 'password'}
                             className={styles.input}
                             placeholder="••••••••"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             required
                         />
+                    </div>
+
+                    {/* Підтвердження пароля (тільки при реєстрації) */}
+                    {mode === 'register' && (
+                        <div className={styles.fieldGroup}>
+                            <label className={styles.label} htmlFor="auth-confirm-password">
+                                Повторіть пароль
+                            </label>
+                            <input
+                                id="auth-confirm-password"
+                                type={showPassword ? 'text' : 'password'}
+                                className={styles.input}
+                                placeholder="••••••••"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                required
+                            />
+                        </div>
+                    )}
+
+                    {/* Галочка: Показати пароль */}
+                    <div className={styles.checkboxRow}>
+                        <input
+                            id="show-password"
+                            type="checkbox"
+                            className={styles.checkboxInput}
+                            checked={showPassword}
+                            onChange={(e) => setShowPassword(e.target.checked)}
+                        />
+                        <label htmlFor="show-password" className={styles.checkboxLabel}>
+                            Показати пароль
+                        </label>
                     </div>
 
                     <button type="submit" className={styles.submitBtn}>
@@ -93,7 +193,10 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                         {mode === 'login' ? 'Немає акаунту?' : 'Вже маєте акаунт?'}
                         <span
                             className={styles.switchLink}
-                            onClick={() => setMode(mode === 'login' ? 'register' : 'login')}
+                            onClick={() => {
+                                setMode(mode === 'login' ? 'register' : 'login');
+                                setConfirmPassword('');
+                            }}
                         >
                             {mode === 'login' ? 'Зареєструватись' : 'Увійти'}
                         </span>
