@@ -1,0 +1,313 @@
+.pageLayout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #0f1016;
+}
+
+.contentWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 36px;
+    background-color: #131520;
+    border-bottom: 1px solid #232738;
+}
+
+.pageHeading {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.badge {
+    font-size: 11px;
+    font-weight: 600;
+    color: #6366f1;
+    background-color: rgba(99, 102, 241, 0.15);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.quickAuthBtn {
+    background-color: #6366f1;
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.quickAuthBtn:hover {
+    background-color: #4f46e5;
+}
+
+.mainContent {
+    flex: 1;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Вітальний банер для неавторизованого гостя */
+.welcomeBanner {
+    background: linear-gradient(135deg, #1e2238 0%, #171929 100%);
+    border: 1px solid #2e3552;
+    border-radius: 16px;
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.bannerText {
+    flex: 1;
+}
+
+.bannerTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.bannerDesc {
+    font-size: 13px;
+    color: #9ca3af;
+    line-height: 1.5;
+}
+
+.bannerBtn {
+    background-color: #ff6b35;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: transform 0.15s, background-color 0.2s;
+}
+
+.bannerBtn:hover {
+    background-color: #ea580c;
+    transform: translateY(-1px);
+}
+
+/* Фільтри стрічки */
+.filtersBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.filterTabs {
+    display: flex;
+    gap: 8px;
+}
+
+.filterBtn {
+    background-color: #171926;
+    border: 1px solid #272c42;
+    color: #9ca3af;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.filterBtn:hover {
+    color: #ffffff;
+    background-color: #21253a;
+}
+
+.filterBtnActive {
+    background-color: #24293f;
+    border-color: #6366f1;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.feedCount {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Список постів */
+.feedList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.postCard {
+    background-color: #171926;
+    border: 1px solid #272c42;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: border-color 0.2s, transform 0.15s;
+}
+
+.postCard:hover {
+    border-color: #3b4263;
+    transform: translateY(-1px);
+}
+
+.postHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.authorBlock {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.authorAvatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4f46e5, #06b6d4);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.authorMeta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.authorName {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.postTime {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.streakBadge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: rgba(255, 107, 53, 0.15);
+    border: 1px solid rgba(255, 107, 53, 0.35);
+    color: #ff6b35;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.postText {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #d1d5db;
+}
+
+/* Міні-календар серії днів */
+.streakCalendarMini {
+    background-color: #10121d;
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.miniCalTitle {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #6b7280;
+}
+
+.miniDaysList {
+    display: flex;
+    gap: 6px;
+}
+
+.miniDay {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #1c2030;
+    color: #6b7280;
+}
+
+.miniDayCompleted {
+    background-color: rgba(255, 107, 53, 0.2);
+    color: #ff6b35;
+    border: 1px solid rgba(255, 107, 53, 0.4);
+}
+
+.postFooter {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 6px;
+    border-top: 1px solid #1f2335;
+}
+
+.actionBtn {
+    background: transparent;
+    color: #9ca3af;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.actionBtn:hover {
+    color: #ffffff;
+    background-color: #202438;
+}
+
+.actionBtnActive {
+    color: #ff6b35;
+}

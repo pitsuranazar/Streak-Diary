@@ -1,0 +1,386 @@
+.pageLayout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #0f1016;
+}
+
+.contentWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 36px;
+    background-color: #131520;
+    border-bottom: 1px solid #232738;
+}
+
+.headingBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.pageTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pageSubtitle {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.streakStatusBadge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(249, 115, 22, 0.1));
+    border: 1px solid rgba(255, 107, 53, 0.4);
+    padding: 8px 16px;
+    border-radius: 12px;
+}
+
+.fireAnim {
+    font-size: 20px;
+}
+
+.streakCount {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ff6b35;
+}
+
+.streakDesc {
+    font-size: 12px;
+    color: #d1d5db;
+}
+
+.mainContent {
+    flex: 1;
+    max-width: 1060px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 24px;
+}
+
+@media (max-width: 992px) {
+    .mainContent {
+        grid-template-columns: 1fr;
+    }
+}
+
+.leftColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.rightColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Картка календаря */
+.card {
+    background-color: #171926;
+    border: 1px solid #272c42;
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardTitle {
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.monthNav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.monthTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+.navArrowBtn {
+    background: #1f2336;
+    color: #9ca3af;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.navArrowBtn:hover {
+    color: #ffffff;
+    background: #2b314d;
+}
+
+/* Сітка календаря */
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+}
+
+.weekDayName {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    padding-bottom: 6px;
+}
+
+.calendarCell {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #121420;
+    border: 1px solid #202438;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #9ca3af;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.calendarCell:hover {
+    border-color: #3f476a;
+    background-color: #1a1e30;
+}
+
+.cellActive {
+    background: rgba(255, 107, 53, 0.12);
+    border-color: rgba(255, 107, 53, 0.45);
+    color: #ffffff;
+}
+
+.cellToday {
+    box-shadow: 0 0 0 2px #6366f1;
+    font-weight: 700;
+}
+
+.cellFlame {
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.calendarLegend {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 12px;
+    color: #9ca3af;
+    padding-top: 10px;
+    border-top: 1px solid #202438;
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legendDotActive {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    background-color: #ff6b35;
+}
+
+.legendDotToday {
+    width: 10px;
+    height: 10px;
+    border-radius: 3px;
+    border: 2px solid #6366f1;
+}
+
+/* Секція звичок */
+.habitsList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.habitItem {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #121420;
+    border: 1px solid #22263a;
+    border-radius: 12px;
+    padding: 14px 16px;
+    transition: all 0.2s;
+}
+
+.habitItem:hover {
+    border-color: #353b59;
+}
+
+.habitLeft {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.checkbox {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    border: 2px solid #434a6d;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.checkboxChecked {
+    background-color: #10b981;
+    border-color: #10b981;
+}
+
+.habitTitle {
+    font-size: 14px;
+    font-weight: 500;
+    color: #f3f4f6;
+}
+
+.habitTitleDone {
+    text-decoration: line-through;
+    color: #6b7280;
+}
+
+.habitStreakBadge {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ff6b35;
+    background: rgba(255, 107, 53, 0.1);
+    padding: 3px 8px;
+    border-radius: 12px;
+}
+
+.addHabitBtn {
+    background-color: transparent;
+    border: 1px dashed #3a4263;
+    color: #818cf8;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.addHabitBtn:hover {
+    border-color: #6366f1;
+    background-color: rgba(99, 102, 241, 0.08);
+}
+
+/* Права колонка - відмітка дня та натхнення */
+.quickEntryCard {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.entryTextarea {
+    background-color: #121420;
+    border: 1px solid #232738;
+    color: #f3f4f6;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    resize: none;
+    height: 90px;
+    outline: none;
+}
+
+.entryTextarea:focus {
+    border-color: #6366f1;
+}
+
+.postEntryBtn {
+    background-color: #6366f1;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.postEntryBtn:hover {
+    background-color: #4f46e5;
+}
+
+.quoteCard {
+    background: linear-gradient(135deg, #181c2d, #141624);
+    border: 1px solid #262c44;
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quoteText {
+    font-size: 13px;
+    font-style: italic;
+    color: #d1d5db;
+    line-height: 1.5;
+}
+
+.quoteAuthor {
+    font-size: 11px;
+    color: #818cf8;
+    font-weight: 600;
+    text-align: right;
+}

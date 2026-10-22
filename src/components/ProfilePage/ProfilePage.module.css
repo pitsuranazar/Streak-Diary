@@ -1,0 +1,216 @@
+.pageLayout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #0f1016;
+}
+
+.contentWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.topBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 36px;
+    background-color: #131520;
+    border-bottom: 1px solid #232738;
+}
+
+.pageTitle {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.mainContent {
+    flex: 1;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.profileCard {
+    background-color: #171926;
+    border: 1px solid #272c42;
+    border-radius: 18px;
+    padding: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.profileInfo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.largeAvatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #6366f1, #ec4899);
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.profileDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.userName {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.userBio {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.userEmail {
+    font-size: 12px;
+    color: #6366f1;
+}
+
+.editBtn {
+    background-color: #202538;
+    border: 1px solid #363e5e;
+    color: #e5e7eb;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.editBtn:hover {
+    background-color: #2c334d;
+    color: #ffffff;
+}
+
+/* Статистика стріків */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+}
+
+@media (max-width: 720px) {
+    .statsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.statCard {
+    background-color: #171926;
+    border: 1px solid #272c42;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.statValue {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.statValueFire {
+    color: #ff6b35;
+}
+
+.statLabel {
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* Секція досягнень */
+.card {
+    background-color: #171926;
+    border: 1px solid #272c42;
+    border-radius: 16px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.cardTitle {
+    font-size: 17px;
+    font-weight: 600;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.badgesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+}
+
+.badgeItem {
+    background-color: #121420;
+    border: 1px solid #202438;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.badgeIcon {
+    font-size: 28px;
+    width: 44px;
+    height: 44px;
+    background-color: #1a1e30;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.badgeInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.badgeName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.badgeDesc {
+    font-size: 11px;
+    color: #9ca3af;
+}
