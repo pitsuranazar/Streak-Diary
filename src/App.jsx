@@ -6,27 +6,13 @@ import ProfilePage from './components/ProfilePage/ProfilePage';
 import AuthModal from './components/Auth/AuthModal';
 
 export default function App() {
-    // Стан авторизації (за замовчуванням false - гість)
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-    // Поточна сторінка ('global', 'home', 'friends', 'profile')
     const [currentPage, setCurrentPage] = useState('global');
-
-    // Стан модального вікна авторизації
     const [authModal, setAuthModal] = useState({
         isOpen: false,
-        mode: 'login', // 'login' | 'register'
+        mode: 'login',
     });
 
-    // Дані поточного користувача
-    const [currentUser, setCurrentUser] = useState({
-        name: 'Назар Піцура',
-        initials: 'НП',
-        email: 'pitsura.nazar@student.uzhnu.edu.ua',
-        streak: 28,
-    });
-
-    // Обробники відкриття авторизації
     const handleOpenLogin = () => {
         setAuthModal({ isOpen: true, mode: 'login' });
     };
@@ -39,23 +25,17 @@ export default function App() {
         setAuthModal({ isOpen: false, mode: 'login' });
     };
 
-    // Успішний вхід / реєстрація
-    const handleSuccessLogin = (userData) => {
+    const handleSuccessLogin = () => {
         setIsLoggedIn(true);
-        if (userData) {
-            setCurrentUser((prev) => ({ ...prev, ...userData }));
-        }
         setCurrentPage('home');
         handleCloseAuth();
     };
 
-    // Вихід із системи
     const handleLogout = () => {
         setIsLoggedIn(false);
         setCurrentPage('global');
     };
 
-    // Навігація між сторінками
     const handleNavigate = (page) => {
         if (!isLoggedIn && page !== 'global') {
             handleOpenLogin();
@@ -64,7 +44,6 @@ export default function App() {
         setCurrentPage(page);
     };
 
-    // Рендеринг активної сторінки
     const renderPage = () => {
         if (!isLoggedIn || currentPage === 'global') {
             return (
@@ -75,7 +54,6 @@ export default function App() {
                     onOpenLogin={handleOpenLogin}
                     onOpenRegister={handleOpenRegister}
                     onLogout={handleLogout}
-                    user={currentUser}
                 />
             );
         }
@@ -88,7 +66,6 @@ export default function App() {
                         onNavigate={handleNavigate}
                         isLoggedIn={isLoggedIn}
                         onLogout={handleLogout}
-                        user={currentUser}
                     />
                 );
             case 'friends':
@@ -98,7 +75,6 @@ export default function App() {
                         onNavigate={handleNavigate}
                         isLoggedIn={isLoggedIn}
                         onLogout={handleLogout}
-                        user={currentUser}
                     />
                 );
             case 'profile':
@@ -108,7 +84,6 @@ export default function App() {
                         onNavigate={handleNavigate}
                         isLoggedIn={isLoggedIn}
                         onLogout={handleLogout}
-                        user={currentUser}
                     />
                 );
             default:
@@ -120,7 +95,6 @@ export default function App() {
                         onOpenLogin={handleOpenLogin}
                         onOpenRegister={handleOpenRegister}
                         onLogout={handleLogout}
-                        user={currentUser}
                     />
                 );
         }
@@ -130,7 +104,6 @@ export default function App() {
         <div>
             {renderPage()}
 
-            {/* Модальне вікно авторизації */}
             {authModal.isOpen && (
                 <AuthModal
                     initialMode={authModal.mode}

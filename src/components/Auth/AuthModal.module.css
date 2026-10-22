@@ -4,8 +4,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(10, 11, 16, 0.75);
-    backdrop-filter: blur(6px);
+    background-color: rgba(18, 20, 36, 0.5);
+    backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,156 +14,138 @@
 }
 
 .modal {
-    background-color: #171926;
-    border: 1px solid #2c324b;
-    border-radius: 18px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
     width: 100%;
-    max-width: 420px;
-    padding: 28px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    max-width: 400px;
+    padding: 32px 28px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
     position: relative;
-    animation: modalAppear 0.25s ease-out;
-}
-
-@keyframes modalAppear {
-    from {
-        opacity: 0;
-        transform: translateY(12px) scale(0.97);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .closeButton {
     position: absolute;
-    top: 18px;
-    right: 18px;
+    top: 16px;
+    right: 16px;
     background: transparent;
-    color: #9ca3af;
-    font-size: 20px;
-    line-height: 1;
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
+    color: var(--text-muted);
+    font-size: 18px;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.2s;
+    transition: all 0.15s;
 }
 
 .closeButton:hover {
-    color: #ffffff;
-    background-color: #24293f;
+    color: var(--text-main);
+    background-color: #f0f2f8;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 24px;
-}
-
-.flameIcon {
-    font-size: 36px;
-    margin-bottom: 8px;
-    display: inline-block;
 }
 
 .title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-    color: #ffffff;
-    margin-bottom: 6px;
+    color: var(--text-main);
+    margin-bottom: 4px;
 }
 
 .subtitle {
     font-size: 13px;
-    color: #9ca3af;
+    color: var(--text-secondary);
 }
 
 .tabs {
     display: flex;
-    background-color: #10121d;
-    padding: 4px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    background-color: #f1f2f8;
+    padding: 3px;
+    border-radius: 8px;
 }
 
 .tab {
     flex: 1;
-    padding: 9px 0;
+    padding: 8px 0;
     text-align: center;
     font-size: 13px;
-    font-weight: 600;
-    color: #9ca3af;
+    font-weight: 500;
+    color: var(--text-secondary);
     background: transparent;
-    border-radius: 8px;
-    transition: all 0.2s;
+    border-radius: 6px;
+    transition: all 0.15s;
 }
 
 .tabActive {
-    color: #ffffff;
-    background-color: #24293f;
+    color: var(--text-main);
+    background-color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
 }
 
 .fieldGroup {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
 }
 
 .label {
-    font-size: 13px;
-    font-weight: 500;
-    color: #d1d5db;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-main);
 }
 
 .input {
-    background-color: #0f1019;
-    border: 1px solid #2b3048;
-    color: #f3f4f6;
-    padding: 11px 14px;
-    border-radius: 9px;
-    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    padding: 10px 12px;
+    border-radius: 8px;
+    font-size: 13px;
     outline: none;
-    transition: border-color 0.2s;
+    transition: border-color 0.15s;
 }
 
 .input:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+    border-color: var(--primary);
 }
 
 .submitBtn {
-    margin-top: 8px;
-    background-color: #6366f1;
+    margin-top: 6px;
+    background-color: var(--primary);
     color: #ffffff;
-    padding: 12px;
-    border-radius: 9px;
-    font-size: 14px;
+    padding: 11px;
+    border-radius: 8px;
+    font-size: 13px;
     font-weight: 600;
-    transition: background-color 0.2s;
+    transition: background-color 0.15s;
 }
 
 .submitBtn:hover {
-    background-color: #4f46e5;
+    background-color: var(--primary-hover);
 }
 
 .switchText {
-    margin-top: 14px;
     font-size: 12px;
     text-align: center;
-    color: #9ca3af;
+    color: var(--text-secondary);
 }
 
 .switchLink {
-    color: #818cf8;
+    color: var(--primary);
     cursor: pointer;
     font-weight: 600;
     margin-left: 4px;

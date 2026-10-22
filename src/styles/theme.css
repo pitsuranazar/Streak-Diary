@@ -1,0 +1,33 @@
+/* Змінні теми за макетом Figma (світла контентна зона + темно-синій сайдбар) */
+:root {
+    /* Сайдбар */
+    --sidebar-bg: #1c1b38;
+    --sidebar-text: #ffffff;
+    --sidebar-text-muted: #9896b8;
+    --sidebar-active-bg: #2d2c55;
+    --sidebar-hover-bg: #252448;
+    --sidebar-border: #29284d;
+
+    /* Область контенту */
+    --content-bg: #f6f7fb;
+    --card-bg: #ffffff;
+    --card-border: #e8eaf2;
+    --card-shadow: 0 4px 16px rgba(18, 24, 40, 0.04);
+
+    /* Текст контенту */
+    --text-main: #1f2238;
+    --text-secondary: #696d84;
+    --text-muted: #9ca0b8;
+
+    /* Акцентні кольори */
+    --primary: #5450e4;
+    --primary-hover: #4541cb;
+    --accent-orange: #ff7a00;
+    --accent-orange-light: rgba(255, 122, 0, 0.1);
+
+    /* Календар */
+    --calendar-border: #e6e8f0;
+    --calendar-cell-bg: #ffffff;
+    --calendar-cell-hover: #f9faff;
+    --calendar-today-border: #ff7a00;
+}

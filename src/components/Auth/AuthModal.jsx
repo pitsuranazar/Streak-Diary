@@ -3,23 +3,12 @@ import styles from './AuthModal.module.css';
 
 export default function AuthModal({ initialMode = 'login', onClose, onSuccessLogin }) {
     const [mode, setMode] = useState(initialMode);
-    const [name, setName] = useState('Назар Піцура');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Імітація успішної авторизації (без бекенду за вимогами лаби)
-        const initials = name
-            ? name.split(' ').map((n) => n[0]).join('').toUpperCase()
-            : 'НП';
-
-        onSuccessLogin({
-            name: mode === 'register' ? (name || 'Користувач') : 'Назар Піцура',
-            initials: mode === 'register' ? initials : 'НП',
-            email: email || 'student@uzhnu.edu.ua',
-            streak: 7,
-        });
+        onSuccessLogin();
     };
 
     return (
@@ -38,14 +27,13 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                 </button>
 
                 <div className={styles.header}>
-                    <div className={styles.flameIcon}>🔥</div>
                     <h2 className={styles.title}>
-                        {mode === 'login' ? 'Вхід у Streak Diary' : 'Створення акаунту'}
+                        {mode === 'login' ? 'Вхід' : 'Реєстрація'}
                     </h2>
                     <p className={styles.subtitle}>
                         {mode === 'login'
-                            ? 'Продовжуйте щоденні серії звичок'
-                            : 'Почніть відстежувати свій прогрес сьогодні'}
+                            ? 'Введіть дані для входу'
+                            : 'Створіть свій обліковий запис'}
                     </p>
                 </div>
 
@@ -67,23 +55,6 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                 </div>
 
                 <form className={styles.form} onSubmit={handleSubmit}>
-                    {mode === 'register' && (
-                        <div className={styles.fieldGroup}>
-                            <label className={styles.label} htmlFor="auth-name">
-                                Ваше ім&apos;я та прізвище
-                            </label>
-                            <input
-                                id="auth-name"
-                                type="text"
-                                className={styles.input}
-                                placeholder="Олександр Петренко"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                required
-                            />
-                        </div>
-                    )}
-
                     <div className={styles.fieldGroup}>
                         <label className={styles.label} htmlFor="auth-email">
                             Електронна пошта
@@ -92,7 +63,7 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                             id="auth-email"
                             type="email"
                             className={styles.input}
-                            placeholder="student@uzhnu.edu.ua"
+                            placeholder="email@example.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required

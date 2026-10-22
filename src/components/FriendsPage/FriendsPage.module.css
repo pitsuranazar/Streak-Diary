@@ -1,224 +1,146 @@
 .pageLayout {
     display: flex;
     min-height: 100vh;
-    background-color: #0f1016;
+    background-color: var(--content-bg);
 }
 
 .contentWrapper {
     flex: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 40px 24px;
+    gap: 16px;
     min-width: 0;
 }
 
-.topBar {
+.searchBox {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 36px;
-    background-color: #131520;
-    border-bottom: 1px solid #232738;
-}
-
-.pageTitle {
-    font-size: 22px;
-    font-weight: 700;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
     gap: 10px;
-}
-
-.mainContent {
-    flex: 1;
-    max-width: 980px;
     width: 100%;
-    margin: 0 auto;
-    padding: 28px 24px;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 24px;
-}
-
-@media (max-width: 860px) {
-    .mainContent {
-        grid-template-columns: 1fr;
-    }
-}
-
-.card {
-    background-color: #171926;
-    border: 1px solid #272c42;
-    border-radius: 16px;
-    padding: 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.cardHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cardTitle {
-    font-size: 17px;
-    font-weight: 600;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.searchBar {
-    display: flex;
-    gap: 8px;
+    max-width: 580px;
 }
 
 .searchInput {
     flex: 1;
-    background-color: #111320;
-    border: 1px solid #272c42;
-    color: #f3f4f6;
-    padding: 9px 12px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-main);
+    padding: 10px 14px;
     border-radius: 8px;
     font-size: 13px;
     outline: none;
+    box-shadow: var(--card-shadow);
 }
 
 .searchInput:focus {
-    border-color: #6366f1;
+    border-color: var(--primary);
 }
 
-.friendsList {
+.searchBtn {
+    background-color: var(--primary);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 0.15s;
+}
+
+.searchBtn:hover {
+    background-color: var(--primary-hover);
+}
+
+.friendsCard {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    width: 100%;
+    max-width: 580px;
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.cardTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-main);
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.list {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.friendItem {
+.item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #121420;
-    border: 1px solid #202438;
-    border-radius: 12px;
-    padding: 12px 16px;
-    transition: all 0.2s;
+    padding: 8px 0;
+    border-bottom: 1px solid #f2f3f8;
 }
 
-.friendItem:hover {
-    border-color: #343a57;
+.item:last-child {
+    border-bottom: none;
 }
 
-.friendLeft {
+.itemLeft {
     display: flex;
     align-items: center;
     gap: 12px;
 }
 
 .avatar {
-    width: 40px;
-    height: 40px;
+    width: 34px;
+    height: 34px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #ec4899, #8b5cf6);
     color: #ffffff;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: 12px;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.friendMeta {
+.avatarGreen { background-color: #10b981; }
+.avatarOrange { background-color: #f97316; }
+.avatarPink { background-color: #ec4899; }
+
+.itemInfo {
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.friendName {
-    font-size: 14px;
-    font-weight: 600;
-    color: #ffffff;
-}
-
-.friendHabit {
-    font-size: 12px;
-    color: #9ca3af;
-}
-
-.streakBadge {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #ff6b35;
-    background: rgba(255, 107, 53, 0.12);
-    padding: 5px 10px;
-    border-radius: 20px;
-}
-
-/* Таблиця лідерів (Leaderboard) */
-.leaderboardList {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.leaderboardRow {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #121420;
-    border: 1px solid #202438;
-    border-radius: 10px;
-    padding: 10px 14px;
-}
-
-.rankBadge {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #24293f;
-    color: #ffffff;
-    font-size: 12px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.rankTop1 {
-    background-color: #eab308;
-    color: #000000;
-}
-
-.rankTop2 {
-    background-color: #94a3b8;
-    color: #000000;
-}
-
-.rankTop3 {
-    background-color: #b45309;
-    color: #ffffff;
-}
-
-.leaderLeft {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.leaderName {
+.name {
     font-size: 13px;
     font-weight: 600;
-    color: #f3f4f6;
+    color: var(--text-main);
 }
 
-.leaderStreak {
-    font-size: 13px;
-    font-weight: 700;
-    color: #ff6b35;
+.status {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.actionBtn {
+    background: transparent;
+    border: 1px solid var(--card-border);
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.15s;
+}
+
+.actionBtn:hover {
+    background-color: #f5f6ff;
+    border-color: var(--primary);
 }
