@@ -4,7 +4,6 @@ import styles from './AuthModal.module.css';
 export default function AuthModal({ initialMode = 'login', onClose, onSuccessLogin }) {
     const [mode, setMode] = useState(initialMode);
 
-    // Поля форми
     const [lastName, setLastName] = useState('');
     const [firstName, setFirstName] = useState('');
     const [nickname, setNickname] = useState('');
@@ -12,7 +11,6 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    // Стан показу пароля
     const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = (e) => {

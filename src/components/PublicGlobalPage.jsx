@@ -9,7 +9,6 @@ export default function PublicGlobalPage({
     onOpenRegister,
     onLogout,
 }) {
-    // Мінімалістичний список без персональних даних
     const posts = [
         { id: 1, initial: 'U1', colorClass: styles.avatarPurple, title: 'User 1', desc: 'Виконано щоденну ціль', time: '10:00' },
         { id: 2, initial: 'U2', colorClass: styles.avatarGreen, title: 'User 2', desc: 'Новий запис у календарі', time: '11:30' },
