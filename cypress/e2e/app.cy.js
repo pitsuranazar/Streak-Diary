@@ -1,28 +1,51 @@
-describe('Streak Diary E2E Tests', () => {
+describe('Streak Diary E2E Routing Tests', () => {
     beforeEach(() => {
         cy.visit('/');
     });
 
-    it('показує глобальну стрічку та обмежене меню для неавторизованого користувача', () => {
+    it('показує глобальну стрічку та обмежене меню для неавторизованого користувача на маршруті /', () => {
+        cy.url().should('eq', `${Cypress.config().baseUrl}/`);
         cy.contains('Streak Diary').should('be.visible');
-        cy.contains('button', 'Глобальна').should('be.visible');
-        cy.contains('button', 'Головна').should('not.exist');
-        cy.contains('button', 'Друзі').should('not.exist');
-        cy.contains('button', 'Профіль').should('not.exist');
+
+        cy.contains('a', 'Глобальна').should('be.visible');
+        cy.contains('a', 'Головна').should('not.exist');
+        cy.contains('a', 'Друзі').should('not.exist');
+        cy.contains('a', 'Профіль').should('not.exist');
+
+        // Кнопки авторизації в сайдбарі
         cy.contains('button', 'Увійти').should('be.visible');
         cy.contains('button', 'Зареєструватись').should('be.visible');
         cy.contains('Глобальна стрічка').should('be.visible');
     });
 
-    it('відкриває модальне вікно авторизації та дозволяє увійти', () => {
+    it('захищає приватні маршрути (ProtectedRoute) і перенаправляє гостя на /', () => {
+        cy.visit('/home');
+        cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+        cy.contains('Вхід').should('be.visible');
+    });
+
+    it('авторизує користувача, перенаправляє на /home і дозволяє перемикати сторінки через react-router', () => {
         cy.contains('button', 'Увійти').first().click();
         cy.contains('Вхід').should('be.visible');
-        cy.get('input[type="email"]').should('be.visible');
-        cy.get('input[type="password"]').should('be.visible');
+        cy.get('input[type="email"]').type('student@uzhnu.edu.ua');
+        cy.get('input[type="password"]').type('password123');
         cy.get('form').submit();
-        cy.contains('button', 'Головна').should('be.visible');
-        cy.contains('button', 'Друзі').should('be.visible');
-        cy.contains('button', 'Профіль').should('be.visible');
-        cy.contains('Жовтень 2026').should('be.visible');
+
+        cy.url().should('include', '/home');
+        cy.contains('a', 'Головна').should('be.visible');
+        cy.contains('a', 'Друзі').should('be.visible');
+        cy.contains('a', 'Профіль').should('be.visible');
+
+        cy.contains('a', 'Друзі').click();
+        cy.url().should('include', '/friends');
+        cy.contains('Підписки').should('be.visible');
+
+        cy.contains('a', 'Профіль').click();
+        cy.url().should('include', '/profile');
+        cy.contains('Користувач').should('be.visible');
+
+        cy.contains('button', 'Вийти').click();
+        cy.url().should('eq', `${Cypress.config().baseUrl}/`);
+        cy.contains('a', 'Головна').should('not.exist');
     });
 });

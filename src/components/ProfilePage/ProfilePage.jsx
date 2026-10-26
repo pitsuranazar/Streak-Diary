@@ -3,16 +3,12 @@ import Calendar from '../Calendar/Calendar';
 import styles from './ProfilePage.module.css';
 
 export default function ProfilePage({
-    currentPage = 'profile',
-    onNavigate,
     isLoggedIn = true,
     onLogout,
 }) {
     return (
         <div className={styles.pageLayout}>
             <Sidebar
-                currentPage={currentPage}
-                onNavigate={onNavigate}
                 isLoggedIn={isLoggedIn}
                 onLogout={onLogout}
             />

@@ -3,8 +3,6 @@ import Sidebar from '../Sidebar/Sidebar';
 import styles from './FriendsPage.module.css';
 
 export default function FriendsPage({
-    currentPage = 'friends',
-    onNavigate,
     isLoggedIn = true,
     onLogout,
 }) {
@@ -19,8 +17,6 @@ export default function FriendsPage({
     return (
         <div className={styles.pageLayout}>
             <Sidebar
-                currentPage={currentPage}
-                onNavigate={onNavigate}
                 isLoggedIn={isLoggedIn}
                 onLogout={onLogout}
             />

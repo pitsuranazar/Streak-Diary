@@ -3,8 +3,6 @@ import styles from './PublicGlobalPage.module.css';
 
 export default function PublicGlobalPage({
     isLoggedIn = false,
-    currentPage = 'global',
-    onNavigate,
     onOpenLogin,
     onOpenRegister,
     onLogout,
@@ -19,8 +17,6 @@ export default function PublicGlobalPage({
     return (
         <div className={styles.pageLayout}>
             <Sidebar
-                currentPage={currentPage}
-                onNavigate={onNavigate}
                 isLoggedIn={isLoggedIn}
                 onOpenLogin={onOpenLogin}
                 onOpenRegister={onOpenRegister}
