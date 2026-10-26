@@ -32,7 +32,6 @@ export default function ProfilePage({
                     </button>
                 </div>
 
-                {/* Динамічний календар активності користувача */}
                 <Calendar />
             </main>
         </div>
