@@ -42,7 +42,6 @@ export default function App() {
     return (
         <div>
             <Routes>
-                {/* Публічний маршрут глобальної стрічки */}
                 <Route
                     path="/"
                     element={
@@ -59,7 +58,6 @@ export default function App() {
                     element={<Navigate to="/" replace />}
                 />
 
-                {/* Захищені приватні маршрути */}
                 <Route
                     path="/home"
                     element={
@@ -103,11 +101,9 @@ export default function App() {
                     }
                 />
 
-                {/* Fallback для неіснуючих маршрутів */}
                 <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
 
-            {/* Модальне вікно авторизації */}
             {authModal.isOpen && (
                 <AuthModal
                     initialMode={authModal.mode}
