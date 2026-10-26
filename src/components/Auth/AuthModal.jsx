@@ -70,7 +70,6 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                 <form className={styles.form} onSubmit={handleSubmit}>
                     {mode === 'register' && (
                         <>
-                            {/* Ім'я та Прізвище (необов'язкові) */}
                             <div className={styles.rowTwoCols}>
                                 <div className={styles.fieldGroup}>
                                     <label className={styles.label} htmlFor="reg-first-name">
@@ -101,7 +100,6 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                                 </div>
                             </div>
 
-                            {/* Нікнейм (обов'язковий) */}
                             <div className={styles.fieldGroup}>
                                 <label className={styles.label} htmlFor="reg-nickname">
                                     Нікнейм
@@ -119,7 +117,6 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                         </>
                     )}
 
-                    {/* Пошта */}
                     <div className={styles.fieldGroup}>
                         <label className={styles.label} htmlFor="auth-email">
                             Електронна пошта
@@ -135,7 +132,6 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                         />
                     </div>
 
-                    {/* Пароль */}
                     <div className={styles.fieldGroup}>
                         <label className={styles.label} htmlFor="auth-password">
                             Пароль
@@ -151,7 +147,6 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                         />
                     </div>
 
-                    {/* Підтвердження пароля (тільки при реєстрації) */}
                     {mode === 'register' && (
                         <div className={styles.fieldGroup}>
                             <label className={styles.label} htmlFor="auth-confirm-password">
@@ -169,7 +164,6 @@ export default function AuthModal({ initialMode = 'login', onClose, onSuccessLog
                         </div>
                     )}
 
-                    {/* Галочка: Показати пароль */}
                     <div className={styles.checkboxRow}>
                         <input
                             id="show-password"
