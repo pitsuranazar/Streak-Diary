@@ -1,17 +1,20 @@
 import { useState } from 'react';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import PublicGlobalPage from './components/PublicGlobalPage';
 import HomePage from './components/HomePage/HomePage';
 import FriendsPage from './components/FriendsPage/FriendsPage';
 import ProfilePage from './components/ProfilePage/ProfilePage';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 import AuthModal from './components/Auth/AuthModal';
 
 export default function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [currentPage, setCurrentPage] = useState('global');
     const [authModal, setAuthModal] = useState({
         isOpen: false,
         mode: 'login',
     });
+
+    const navigate = useNavigate();
 
     const handleOpenLogin = () => {
         setAuthModal({ isOpen: true, mode: 'login' });
@@ -27,83 +30,84 @@ export default function App() {
 
     const handleSuccessLogin = () => {
         setIsLoggedIn(true);
-        setCurrentPage('home');
         handleCloseAuth();
+        navigate('/home');
     };
 
     const handleLogout = () => {
         setIsLoggedIn(false);
-        setCurrentPage('global');
-    };
-
-    const handleNavigate = (page) => {
-        if (!isLoggedIn && page !== 'global') {
-            handleOpenLogin();
-            return;
-        }
-        setCurrentPage(page);
-    };
-
-    const renderPage = () => {
-        if (!isLoggedIn || currentPage === 'global') {
-            return (
-                <PublicGlobalPage
-                    isLoggedIn={isLoggedIn}
-                    currentPage={currentPage}
-                    onNavigate={handleNavigate}
-                    onOpenLogin={handleOpenLogin}
-                    onOpenRegister={handleOpenRegister}
-                    onLogout={handleLogout}
-                />
-            );
-        }
-
-        switch (currentPage) {
-            case 'home':
-                return (
-                    <HomePage
-                        currentPage={currentPage}
-                        onNavigate={handleNavigate}
-                        isLoggedIn={isLoggedIn}
-                        onLogout={handleLogout}
-                    />
-                );
-            case 'friends':
-                return (
-                    <FriendsPage
-                        currentPage={currentPage}
-                        onNavigate={handleNavigate}
-                        isLoggedIn={isLoggedIn}
-                        onLogout={handleLogout}
-                    />
-                );
-            case 'profile':
-                return (
-                    <ProfilePage
-                        currentPage={currentPage}
-                        onNavigate={handleNavigate}
-                        isLoggedIn={isLoggedIn}
-                        onLogout={handleLogout}
-                    />
-                );
-            default:
-                return (
-                    <PublicGlobalPage
-                        isLoggedIn={isLoggedIn}
-                        currentPage={currentPage}
-                        onNavigate={handleNavigate}
-                        onOpenLogin={handleOpenLogin}
-                        onOpenRegister={handleOpenRegister}
-                        onLogout={handleLogout}
-                    />
-                );
-        }
+        navigate('/');
     };
 
     return (
         <div>
-            {renderPage()}
+            <Routes>
+                {/* Публічний маршрут глобальної стрічки */}
+                <Route
+                    path="/"
+                    element={
+                        <PublicGlobalPage
+                            isLoggedIn={isLoggedIn}
+                            onOpenLogin={handleOpenLogin}
+                            onOpenRegister={handleOpenRegister}
+                            onLogout={handleLogout}
+                        />
+                    }
+                />
+                <Route
+                    path="/global"
+                    element={<Navigate to="/" replace />}
+                />
 
+                {/* Захищені приватні маршрути */}
+                <Route
+                    path="/home"
+                    element={
+                        <ProtectedRoute
+                            isLoggedIn={isLoggedIn}
+                            onRequireAuth={handleOpenLogin}
+                        >
+                            <HomePage
+                                isLoggedIn={isLoggedIn}
+                                onLogout={handleLogout}
+                            />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/friends"
+                    element={
+                        <ProtectedRoute
+                            isLoggedIn={isLoggedIn}
+                            onRequireAuth={handleOpenLogin}
+                        >
+                            <FriendsPage
+                                isLoggedIn={isLoggedIn}
+                                onLogout={handleLogout}
+                            />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/profile"
+                    element={
+                        <ProtectedRoute
+                            isLoggedIn={isLoggedIn}
+                            onRequireAuth={handleOpenLogin}
+                        >
+                            <ProfilePage
+                                isLoggedIn={isLoggedIn}
+                                onLogout={handleLogout}
+                            />
+                        </ProtectedRoute>
+                    }
+                />
+
+                {/* Fallback для неіснуючих маршрутів */}
+                <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+
+            {/* Модальне вікно авторизації */}
             {authModal.isOpen && (
                 <AuthModal
                     initialMode={authModal.mode}

@@ -18,9 +18,11 @@
 }
 
 .logo {
+    display: block;
     font-size: 18px;
     font-weight: 700;
     color: var(--sidebar-text);
+    text-decoration: none;
     cursor: pointer;
     user-select: none;
     padding-left: 12px;
@@ -34,6 +36,7 @@
 }
 
 .navItem {
+    display: block;
     width: 100%;
     padding: 10px 14px;
     border-radius: 8px;
@@ -42,7 +45,9 @@
     font-size: 14px;
     font-weight: 500;
     text-align: left;
+    text-decoration: none;
     transition: all 0.15s ease;
+    user-select: none;
 }
 
 .navItem:hover {

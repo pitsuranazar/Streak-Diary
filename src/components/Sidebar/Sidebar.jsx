@@ -1,75 +1,78 @@
+import { NavLink, Link, useNavigate } from 'react-router-dom';
 import styles from './Sidebar.module.css';
 
 export default function Sidebar({
-    currentPage,
-    onNavigate,
     isLoggedIn,
     onOpenLogin,
     onOpenRegister,
     onLogout,
 }) {
+    const navigate = useNavigate();
+
+    const handleLogoutClick = () => {
+        onLogout();
+        navigate('/');
+    };
+
     return (
         <aside className={styles.sidebar}>
             <div className={styles.topSection}>
-                <div
+                <Link
+                    to={isLoggedIn ? '/home' : '/'}
                     className={styles.logo}
-                    onClick={() => onNavigate(isLoggedIn ? 'home' : 'global')}
                 >
                     Streak Diary
-                </div>
+                </Link>
 
                 <nav className={styles.nav}>
                     {!isLoggedIn ? (
-                        <button
-                            type="button"
-                            className={`${styles.navItem} ${
-                                currentPage === 'global' ? styles.navItemActive : ''
-                            }`}
-                            onClick={() => onNavigate('global')}
+                        <NavLink
+                            to="/"
+                            end
+                            className={({ isActive }) =>
+                                `${styles.navItem} ${isActive ? styles.navItemActive : ''}`
+                            }
                         >
                             Глобальна
-                        </button>
+                        </NavLink>
                     ) : (
                         <>
-                            <button
-                                type="button"
-                                className={`${styles.navItem} ${
-                                    currentPage === 'home' ? styles.navItemActive : ''
-                                }`}
-                                onClick={() => onNavigate('home')}
+                            <NavLink
+                                to="/home"
+                                className={({ isActive }) =>
+                                    `${styles.navItem} ${isActive ? styles.navItemActive : ''}`
+                                }
                             >
                                 Головна
-                            </button>
+                            </NavLink>
 
-                            <button
-                                type="button"
-                                className={`${styles.navItem} ${
-                                    currentPage === 'global' ? styles.navItemActive : ''
-                                }`}
-                                onClick={() => onNavigate('global')}
+                            <NavLink
+                                to="/"
+                                end
+                                className={({ isActive }) =>
+                                    `${styles.navItem} ${isActive ? styles.navItemActive : ''}`
+                                }
                             >
                                 Глобальна
-                            </button>
+                            </NavLink>
 
-                            <button
-                                type="button"
-                                className={`${styles.navItem} ${
-                                    currentPage === 'friends' ? styles.navItemActive : ''
-                                }`}
-                                onClick={() => onNavigate('friends')}
+                            <NavLink
+                                to="/friends"
+                                className={({ isActive }) =>
+                                    `${styles.navItem} ${isActive ? styles.navItemActive : ''}`
+                                }
                             >
                                 Друзі
-                            </button>
+                            </NavLink>
 
-                            <button
-                                type="button"
-                                className={`${styles.navItem} ${
-                                    currentPage === 'profile' ? styles.navItemActive : ''
-                                }`}
-                                onClick={() => onNavigate('profile')}
+                            <NavLink
+                                to="/profile"
+                                className={({ isActive }) =>
+                                    `${styles.navItem} ${isActive ? styles.navItemActive : ''}`
+                                }
                             >
                                 Профіль
-                            </button>
+                            </NavLink>
                         </>
                     )}
                 </nav>
@@ -97,7 +100,7 @@ export default function Sidebar({
                     <button
                         type="button"
                         className={styles.logoutBtn}
-                        onClick={onLogout}
+                        onClick={handleLogoutClick}
                     >
                         Вийти
                     </button>
